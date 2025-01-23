@@ -2,11 +2,17 @@ from win10toast import ToastNotifier
 import time
 from pystray import MenuItem as item, Icon, Menu
 from PIL import Image
+import configparser
 
-# Set the icon
-image = Image.open("custom.ico")
+config = configparser.ConfigParser()
+config.sections()
+config.read("config.ini")
+break_interval = int(config["Settings"]["BreakInterval"])
+ImagePath = config["Settings"]["ImagePath"]
+AppName = config["Settings"]["AppName"]
+Description = config["Settings"]["Description"]
+
 toaster = ToastNotifier()
-break_interval = 1200
 time_left = break_interval // 60
 
 def after_click(icon, query):
@@ -19,7 +25,7 @@ def update_menu():
         item("Exit", after_click)
     )
 
-icon = Icon("Break Reminder", image, menu=update_menu())
+icon = Icon(AppName, description=Description, icon=Image.open(ImagePath))
 icon.run_detached()
 
 while True:
@@ -27,4 +33,4 @@ while True:
         time_left = remaining // 60
         icon.menu = update_menu()
         time.sleep(60)
-    toaster.show_toast("Take a break", "Follow the 20-20 rule, and take a break.", icon_path="custom.ico", duration=20)
+    toaster.show_toast(AppName, Description, icon_path=ImagePath, duration=None)
