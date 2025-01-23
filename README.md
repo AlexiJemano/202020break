@@ -1,4 +1,5 @@
 # Break Reminder
+![alt text](https://icon-icons.com/icons2/1784/PNG/256/eye256x256_114396.png)
 
 Break Reminder is a lightweight Python application designed to help users follow the 20-20 rule: every 20 minutes, take a break to rest your eyes and improve productivity. The app provides a Windows notification every 20 minutes (or a customizable interval) to remind users to take a break.
 
@@ -30,8 +31,8 @@ pip install requirements.txt -r
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/break-reminder.git
-   cd break-reminder
+   git clone https://github.com/AlexiJemano/202020break.git
+   cd 202020break
    ```
 2. Customize the `config.ini` file (optional):
    ```ini
@@ -46,7 +47,7 @@ pip install requirements.txt -r
 
 Run the app with:
 ```bash
-python break_reminder.py
+python main.py
 ```
 
 The app will:
