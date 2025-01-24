@@ -1,5 +1,5 @@
 # Break Reminder
-![alt text](https://icon-icons.com/icons2/1784/PNG/256/eye256x256_114396.png)
+![if you see this text, it means image couldent load, please create a pull request](https://i.imgur.com/YLiALc6.png)
 
 Break Reminder is a lightweight Python application designed to help users follow the 20-20 rule: every 20 minutes, take a break to rest your eyes and improve productivity. The app provides a Windows notification every 20 minutes (or a customizable interval) to remind users to take a break.
 
