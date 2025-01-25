@@ -1,4 +1,4 @@
-win10toast
+plyer
 configparser
 pystray
 pillow

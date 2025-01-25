@@ -1,4 +1,4 @@
-from win10toast import ToastNotifier
+from plyer import notification
 import time
 from pystray import MenuItem as item, Icon, Menu
 from PIL import Image
@@ -6,19 +6,17 @@ import configparser
 import sys
 
 config = configparser.ConfigParser()
-config.sections()
 config.read("config.ini")
 break_interval = int(config["Settings"]["BreakInterval"])
 ImagePath = config["Settings"]["ImagePath"]
 AppName = config["Settings"]["AppName"]
 Description = config["Settings"]["Description"]
 
-toaster = ToastNotifier()
 time_left = break_interval // 60
 
 def exit_application(icon):
     icon.stop()
-    sys.exit()  # Ensure complete application termination
+    sys.exit()
 
 def update_menu():
     return Menu(
@@ -36,7 +34,12 @@ try:
             time_left = remaining // 60
             icon.menu = update_menu()
             time.sleep(60)
-        toaster.show_toast(AppName, Description, icon_path=ImagePath, duration=None)
+        notification.notify(
+            title=AppName,
+            message=Description,
+            app_icon=ImagePath,
+            timeout=10
+        )
 except KeyboardInterrupt:
     icon.stop()
     sys.exit()
